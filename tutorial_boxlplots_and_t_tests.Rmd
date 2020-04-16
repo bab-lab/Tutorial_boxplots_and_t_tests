@@ -2,8 +2,8 @@
 title: "Tutorial - Boxplots and T-tests in R"
 author: Emily Towner
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
