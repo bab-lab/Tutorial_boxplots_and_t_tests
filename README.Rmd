@@ -1,0 +1,70 @@
+---
+title: "Tutorial - Boxplots and T-tests in R"
+author: Emily Towner
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Created for the BABLab RA meeting on 4/17/20
+
+First we need to install and load the necessary libraries for this tutorial
+
+```{r, eval=FALSE}
+# Install packages
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("wesanderson")
+```
+
+```{r}
+# Load libraries
+library(tidyverse)
+library(ggplot2)
+library(wesanderson)
+```
+
+The next step is to import our mock dataset. In this dataset we will be looking at anxiety and depression percentiles between individuals who did and did not experience early life stress
+```{r}
+# Import dataset
+df <- read.csv("data.csv")
+```
+
+Next, we want to factor our group and set names for our levels.
+```{r}
+df$group <- as.factor(df$group)
+
+df$group <- factor(df$group,
+levels = c(0,1),
+labels = c("Comp", "ELS"))
+```
+
+Next, let's have a look at our data!
+```{r}
+p <- ggplot(df, aes(group, anxiety_percentile, fill = group)) +
+        geom_boxplot() + 
+        ggtitle("Early Life Stress and Anxiety") + xlab("Group") + ylab("Anxiety Percentile") +
+        theme(legend.position = "none")
+p
+```
+
+Now let's add some fun colors - there are a lot of different palettes and themes available. This one uses color palettes from Wes Anderson movies. You can find all the options [here](https://github.com/karthik/wesanderson). 
+
+Try a different palette yourself!
+
+```{r}
+p <- p+ scale_fill_manual(values=wes_palette(n=2, name="GrandBudapest2"))
+p
+```
+
+That difference looks pretty significant, but let's do a t-test to test it
+
+```{r}
+t.test(anxiety_percentile ~ group, data = df)
+```
+
+# Now you try with the depression percentile variable
