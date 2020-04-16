@@ -2,6 +2,7 @@
 title: "Tutorial - Boxplots and T-tests in R"
 author: Emily Towner
 output:
+  github_document: default
   pdf_document: default
   html_document: default
 ---
@@ -19,6 +20,7 @@ First we need to install and load the necessary libraries for this tutorial
 install.packages("tidyverse")
 install.packages("ggplot2")
 install.packages("wesanderson")
+install.packages("rmarkdown")
 ```
 
 ```{r}
