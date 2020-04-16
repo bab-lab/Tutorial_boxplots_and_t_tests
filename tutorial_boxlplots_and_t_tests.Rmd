@@ -1,5 +1,5 @@
 ---
-title: "Meeting - RA - 4/17/20"
+title: "Tutorial - Boxplots and T-tests in R"
 author: Emily Towner
 output:
   html_document: default
@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Creating boxplots and doing t-tests in R!
+# Created for the BABLab RA meeting on 4/17/20
 
 First we need to install and load the necessary libraries for this tutorial
 
