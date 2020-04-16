@@ -46,7 +46,7 @@ labels = c("Comp", "ELS"))
 ```
 
 Next, let's have a look at our data!
-```{r}
+```{r plot_1}
 p <- ggplot(df, aes(group, anxiety_percentile, fill = group)) +
         geom_boxplot() + 
         ggtitle("Early Life Stress and Anxiety") + xlab("Group") + ylab("Anxiety Percentile") +
@@ -58,7 +58,7 @@ Now let's add some fun colors - there are a lot of different palettes and themes
 
 Try a different palette yourself!
 
-```{r}
+```{r plot_2}
 p <- p+ scale_fill_manual(values=wes_palette(n=2, name="GrandBudapest2"))
 p
 ```
